@@ -24,7 +24,7 @@ namespace Wordle
 
             InitWords();
 
-            CurrentWord = "CLIPE"; // Words[Random.Shared.Next(Words.Count)];
+            CurrentWord = Words[Random.Shared.Next(Words.Count)];
         }
 
         private void InitWords()
