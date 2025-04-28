@@ -1,0 +1,258 @@
+﻿<Window x:Class="Wordle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wordle"
+        mc:Ignorable="d"
+        Title="Wordle" Height="750" Width="420"
+        Background="#121213"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style x:Key="LetterTileStyle" TargetType="Border">
+            <Setter Property="Width" Value="62"/>
+            <Setter Property="Height" Value="62"/>
+            <Setter Property="Margin" Value="4"/>
+            <Setter Property="Background" Value="#121213"/>
+            <Setter Property="BorderBrush" Value="#3a3a3c"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="CornerRadius" Value="4"/>
+        </Style>
+        <Style x:Key="KeyboardKeyStyle" TargetType="Button">
+            <Setter Property="Margin" Value="2"/>
+            <Setter Property="Padding" Value="10,15"/>
+            <Setter Property="Background" Value="#818384"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" 
+                                CornerRadius="4"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <!-- Header -->
+        <Border Grid.Row="0" BorderBrush="#3a3a3c" BorderThickness="0,0,0,1" Padding="15">
+            <TextBlock Text="WORDLE" 
+                       HorizontalAlignment="Center" 
+                       FontSize="32" 
+                       FontWeight="Bold" 
+                       Foreground="White"/>
+        </Border>
+        
+        <!-- Game Board -->
+        <Grid Grid.Row="1" Margin="20">
+            <ItemsControl HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                
+                <!-- Row 1 -->
+                <ItemsControl>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R1C1" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R1C2" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R1C3" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R1C4" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R1C5" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                </ItemsControl>
+                
+                <!-- Row 2 -->
+                <ItemsControl>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R2C1" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R2C2" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R2C3" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R2C4" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R2C5" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                </ItemsControl>
+                
+                <!-- Row 3 -->
+                <ItemsControl>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R3C1" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R3C2" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R3C3" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R3C4" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R3C5" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                </ItemsControl>
+                
+                <!-- Row 4 -->
+                <ItemsControl>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R4C1" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R4C2" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R4C3" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R4C4" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R4C5" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                </ItemsControl>
+                
+                <!-- Row 5 -->
+                <ItemsControl>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R5C1" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R5C2" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R5C3" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R5C4" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R5C5" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                </ItemsControl>
+                
+                <!-- Row 6 -->
+                <ItemsControl>
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R6C1" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R6C2" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R6C3" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R6C4" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                    <Border Style="{StaticResource LetterTileStyle}">
+                        <TextBlock x:Name="R6C5" Text="" FontSize="32" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White"/>
+                    </Border>
+                </ItemsControl>
+            </ItemsControl>
+        </Grid>
+        
+        <!-- Keyboard -->
+        <Grid Grid.Row="2" Margin="15,0,15,20">
+            <StackPanel x:Name="Keyboard">
+                <!-- First row of keyboard: Q W E R T Y U I O P -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,2">
+                    <Button x:Name="BtnQ" Content="Q" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnW" Content="W" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnE" Content="E" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnR" Content="R" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnT" Content="T" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnY" Content="Y" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnU" Content="U" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnI" Content="I" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnO" Content="O" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnP" Content="P" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                </StackPanel>
+
+                <!-- Second row of keyboard: A S D F G H J K L -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,2">
+                    <Button x:Name="BtnA" Content="A" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnS" Content="S" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnD" Content="D" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnF" Content="F" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnG" Content="G" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnH" Content="H" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnJ" Content="J" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnK" Content="K" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnL" Content="L" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                </StackPanel>
+
+                <!-- Third row of keyboard: ENTER Z X C V B N M BACKSPACE -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,2">
+                    <Button Content="ENTER" Style="{StaticResource KeyboardKeyStyle}" Width="70" Click="EnterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnZ" Content="Z" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnX" Content="X" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnC" Content="C" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnV" Content="V" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnB" Content="B" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnN" Content="N" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button x:Name="BtnM" Content="M" Style="{StaticResource KeyboardKeyStyle}" Click="LetterButtonClicked" Focusable="False"/>
+                    <Button Content="⌫" Style="{StaticResource KeyboardKeyStyle}" Width="70" Click="DeleteButtonClicked" Focusable="False"/>
+                </StackPanel>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
